@@ -3,17 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>我的个人网站</title>
-  <meta name="description" content="我的个人主页/作品集" />
+  <title>Sicci-zzf · 个人主页</title>
+  <meta name="description" content="Sicci-zzf 的个人主页/作品集" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header class="wrap">
-    <div class="card hero">
+  <!-- 动态背景层 -->
+  <div class="bg"></div>
+  <div class="glow"></div>
+
+  <!-- 顶部导航（sticky + 模糊） -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Sicci-zzf</a>
+
+      <div class="nav-links">
+        <a href="#projects">作品</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </div>
+
+      <button class="toggle" id="themeToggle" aria-label="切换深浅色" title="切换深浅色">
+        <span class="toggle-icon" id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="wrap" id="top">
+    <div class="card hero reveal">
       <img class="avatar" src="https://picsum.photos/200" alt="头像" />
       <div>
-        <h1>你好，我是 张正芳</h1>
-        <p class="sub">我做 XX（例如：产品/设计/开发/数据）。这里展示我的作品与联系方式。</p>
+        <h1>你好，我是 Sicci</h1>
+        <p class="sub">我做 XX（产品/设计/开发/数据）。这里展示我的作品与联系方式。</p>
         <div class="btns">
           <a class="btn" href="#projects">看作品</a>
           <a class="btn ghost" href="#contact">联系我</a>
@@ -23,22 +45,25 @@
   </header>
 
   <main class="wrap">
-    <section id="projects" class="card">
+    <section id="projects" class="card reveal">
       <h2>作品</h2>
       <div class="grid">
         <a class="proj" href="#" target="_blank" rel="noreferrer">
-          <h3>项目 A</h3><p>一句话说明你做了什么、结果是什么。</p>
+          <h3>项目 A</h3>
+          <p>一句话说明你做了什么、结果是什么。</p>
         </a>
         <a class="proj" href="#" target="_blank" rel="noreferrer">
-          <h3>项目 B</h3><p>可以放 GitHub、文章、演示、视频链接。</p>
+          <h3>项目 B</h3>
+          <p>可以放 GitHub、文章、演示、视频链接。</p>
         </a>
         <a class="proj" href="#" target="_blank" rel="noreferrer">
-          <h3>项目 C</h3><p>越具体越好：指标、时间、你的贡献。</p>
+          <h3>项目 C</h3>
+          <p>越具体越好：指标、时间、你的贡献。</p>
         </a>
       </div>
     </section>
 
-    <section id="about" class="card">
+    <section id="about" class="card reveal">
       <h2>关于我</h2>
       <p>
         用 3–6 句话介绍：你擅长什么、做过什么、正在找什么机会/合作。
@@ -50,10 +75,10 @@
       </ul>
     </section>
 
-    <section id="contact" class="card">
+    <section id="contact" class="card reveal">
       <h2>联系我</h2>
       <p>邮箱：<a href="mailto:your@email.com">your@email.com</a></p>
-      <p>GitHub：<a href="https://github.com/yourname" target="_blank" rel="noreferrer">@yourname</a></p>
+      <p>GitHub：<a href="https://github.com/Sicci-zzf" target="_blank" rel="noreferrer">@Sicci-zzf</a></p>
       <p>LinkedIn/小红书/知乎：<a href="#" target="_blank" rel="noreferrer">你的主页</a></p>
 
       <button class="btn" id="helloBtn">点我打招呼</button>
@@ -61,7 +86,7 @@
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> 张正芳 · Built with HTML/CSS</p>
+      <p>© <span id="year"></span> Sicci-zzf · Built with HTML/CSS</p>
     </footer>
   </main>
 
