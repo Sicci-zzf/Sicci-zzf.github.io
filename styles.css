@@ -123,21 +123,41 @@ body{
   width: 40px;
   height: 40px;
   border-radius: 14px;
-  border: 1px solid var(--border);
+
+  border: 1px solid transparent;     /* ✅ 默认无框 */
   background: rgba(255,255,255,.06);
   color: var(--text);
   cursor: pointer;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
+
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
+
+html.light .toggle{
+  background: rgba(0,0,0,.03);
+}
+
 .toggle:hover{
   transform: translateY(-1px);
+  border-color: var(--border);       /* ✅ hover 才出现细框 */
   background: rgba(255,255,255,.10);
-  border-color: rgba(255,255,255,.22);
 }
+
+html.light .toggle:hover{
+  background: rgba(0,0,0,.06);
+}
+
 .toggle:active{ transform: translateY(0); }
+
+/* 键盘无障碍：tab 聚焦时也显示细框（专业） */
+.toggle:focus-visible{
+  outline: none;
+  border-color: var(--border);
+  box-shadow: 0 0 0 3px rgba(122,162,255,.25);
+}
 
 @media (max-width: 640px){
   .nav-links{ display:none; }
@@ -279,11 +299,50 @@ h2{margin:0 0 14px; font-size:20px; letter-spacing:.2px}
 }
 
 /* 导航高亮状态 */
+/* Apple 风：当前导航高亮（细下划线 + 轻微强调，无背景块） */
+.nav-links a{
+  position: relative;
+}
+
 .nav-links a.active{
   color: var(--text);
-  border-color: var(--border);
-  background: rgba(255,255,255,.10);
+  background: transparent;
+  border-color: transparent;
 }
-html.light .nav-links a.active{
-  background: rgba(0,0,0,.06);
+
+.nav-links a.active::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:6px;
+  height:2px;
+  border-radius:999px;
+  background: currentColor;
+  opacity:.85;
+  transform: scaleX(1);
 }
+
+/* hover 也更克制一点 */
+.nav-links a:hover{
+  background: transparent;
+  border-color: transparent;
+  color: var(--text);
+}
+
+.nav-links a:hover::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:6px;
+  height:2px;
+  border-radius:999px;
+  background: currentColor;
+  opacity:.35;
+  transform: scaleX(1);
+}
+
+/* 浅色模式下线条更淡 */
+html.light .nav-links a.active::after{ opacity:.75; }
+html.light .nav-links a:hover::after{ opacity:.28; }

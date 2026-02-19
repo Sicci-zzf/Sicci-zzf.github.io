@@ -69,7 +69,7 @@ function setupNavActive() {
   homeLink?.addEventListener("click", () => setActive("home"));
 }
 
-document.addEventListener("DOMContentLoaded", loadNav);
+// document.addEventListener("DOMContentLoaded", loadNav);
 
 // 年份
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -108,31 +108,42 @@ window.addEventListener("scroll", () => {
   glow.style.opacity = "0.65";
 }, { passive: true });
 
-// 深浅色切换（记住选择）
+// 深浅色切换（支持动态注入的 nav，记住选择）
 const root = document.documentElement;
-const toggleBtn = document.getElementById("themeToggle");
-const icon = document.getElementById("themeIcon");
 
-function setTheme(mode){
+const THEME_KEY = "theme"; // "light" | "dark"
+
+function applyTheme(mode) {
   if (mode === "light") root.classList.add("light");
   else root.classList.remove("light");
 
-  if (icon) icon.textContent = (mode === "light") ? "☀️" : "🌙";
-  localStorage.setItem("theme", mode);
+  localStorage.setItem(THEME_KEY, mode);
+
+  // nav 是动态插入的，所以每次都重新找 icon
+  const icon = document.getElementById("themeIcon");
+  if (icon) icon.textContent = (mode === "light") ? "🌙" : "☀️"; // light 显示月亮（提示可切到夜间）
 }
 
-const saved = localStorage.getItem("theme");
-if (saved === "light" || saved === "dark") {
-  setTheme(saved);
-} else {
-  const prefersLight = window.matchMedia?.("(prefers-color-scheme: light)")?.matches;
-  setTheme(prefersLight ? "light" : "dark");
+function getInitialTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved === "light" || saved === "dark") return saved;
+
+  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+  return prefersDark ? "dark" : "light";
 }
 
-toggleBtn?.addEventListener("click", () => {
+// 初始化一次
+applyTheme(getInitialTheme());
+
+// 事件委托：不管 nav 什么时候插入，点击都能生效
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest?.("#themeToggle");
+  if (!btn) return;
+
   const isLight = root.classList.contains("light");
-  setTheme(isLight ? "dark" : "light");
+  applyTheme(isLight ? "dark" : "light");
 });
+
 // Hero 打字机
 const target = document.getElementById("typeTarget");
 const sub = document.getElementById("typeSub");
