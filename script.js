@@ -6,6 +6,67 @@ async function loadNav() {
   const res = await fetch("/components/nav.html");
   const html = await res.text();
   container.innerHTML = html;
+
+  // 导航插入后：初始化高亮
+  setupNavActive();
+}
+
+document.addEventListener("DOMContentLoaded", loadNav);
+
+// ====== 导航自动高亮 ======
+function clearActive() {
+  document.querySelectorAll(".nav-links a.active").forEach(a => a.classList.remove("active"));
+}
+
+function setActive(key) {
+  clearActive();
+  const a = document.querySelector(`.nav-links a[data-nav="${key}"]`);
+  if (a) a.classList.add("active");
+}
+
+function setupNavActive() {
+  // 1) 先根据“页面路径”高亮：首页/博客/文章页
+  const path = location.pathname; // 例如 "/"  "/blog/"  "/blog/posts/xxx.html"
+
+  if (path.startsWith("/blog")) {
+    setActive("blog");
+  } else {
+    setActive("home");
+  }
+
+  // 2) 如果在首页：再根据滚动位置高亮（projects/about/contact）
+  // 只有首页才做滚动侦测
+  if (path !== "/" && path !== "/index.html") return;
+
+  const ids = ["projects", "about", "contact"];
+  const sections = ids
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  if (sections.length === 0) return;
+
+  const io = new IntersectionObserver((entries) => {
+    // 找到最“可见”的 section
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (!visible) return;
+
+    const id = visible.target.id;
+    if (id === "projects") setActive("projects");
+    if (id === "about") setActive("about");
+    if (id === "contact") setActive("contact");
+  }, {
+    root: null,
+    threshold: [0.2, 0.35, 0.5, 0.65]
+  });
+
+  sections.forEach(sec => io.observe(sec));
+
+  // 点击首页（home）时也恢复 home 高亮
+  const homeLink = document.querySelector(`.nav-links a[data-nav="home"]`);
+  homeLink?.addEventListener("click", () => setActive("home"));
 }
 
 document.addEventListener("DOMContentLoaded", loadNav);
