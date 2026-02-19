@@ -6,6 +6,12 @@ const posts = [
     slug: "2026-02-19-hello",
     desc: "我为什么做这个网站，以及接下来准备写什么。"
   },
+  {
+    title: "第二篇：学习新建博客",
+    date: "2026-02-19",
+    slug: "2026-02-19-test",
+    desc: "新建博客/n记录我搭建个人网站后的第一周，以及接下来会怎么持续更新。"
+  },
 ];
 
 const el = document.getElementById('postList');
