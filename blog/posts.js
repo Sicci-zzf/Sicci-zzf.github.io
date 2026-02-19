@@ -13,7 +13,7 @@ if (!el) {
   console.error("找不到 #postList：请检查 blog/index.html 是否有 <div id='postList'>");
 } else {
   el.innerHTML = posts.map(p => `
-    <a class="postitem" href="/blog/post.html?p=${encodeURIComponent(p.slug)}">
+    <a class="postitem" href="./post.html?p=${encodeURIComponent(p.slug)}">
       <div class="postmeta">
         <div class="posttitle">${p.title}</div>
         <div class="postdesc">${p.desc}</div>
