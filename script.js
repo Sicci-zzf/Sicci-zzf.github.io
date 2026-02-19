@@ -1,3 +1,15 @@
+// ====== 自动加载导航组件 ======
+async function loadNav() {
+  const container = document.getElementById("nav-placeholder");
+  if (!container) return;
+
+  const res = await fetch("/components/nav.html");
+  const html = await res.text();
+  container.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", loadNav);
+
 // 年份
 document.getElementById("year").textContent = new Date().getFullYear();
 
