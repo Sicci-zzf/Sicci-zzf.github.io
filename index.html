@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>我的个人网站</title>
+  <meta name="description" content="我的个人主页/作品集" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <div class="card hero">
+      <img class="avatar" src="https://picsum.photos/200" alt="头像" />
+      <div>
+        <h1>你好，我是 张正芳</h1>
+        <p class="sub">我做 XX（例如：产品/设计/开发/数据）。这里展示我的作品与联系方式。</p>
+        <div class="btns">
+          <a class="btn" href="#projects">看作品</a>
+          <a class="btn ghost" href="#contact">联系我</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="projects" class="card">
+      <h2>作品</h2>
+      <div class="grid">
+        <a class="proj" href="#" target="_blank" rel="noreferrer">
+          <h3>项目 A</h3><p>一句话说明你做了什么、结果是什么。</p>
+        </a>
+        <a class="proj" href="#" target="_blank" rel="noreferrer">
+          <h3>项目 B</h3><p>可以放 GitHub、文章、演示、视频链接。</p>
+        </a>
+        <a class="proj" href="#" target="_blank" rel="noreferrer">
+          <h3>项目 C</h3><p>越具体越好：指标、时间、你的贡献。</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="card">
+      <h2>关于我</h2>
+      <p>
+        用 3–6 句话介绍：你擅长什么、做过什么、正在找什么机会/合作。
+      </p>
+      <ul>
+        <li>技能：A / B / C</li>
+        <li>兴趣：X / Y</li>
+        <li>所在地：城市（可选）</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>联系我</h2>
+      <p>邮箱：<a href="mailto:your@email.com">your@email.com</a></p>
+      <p>GitHub：<a href="https://github.com/yourname" target="_blank" rel="noreferrer">@yourname</a></p>
+      <p>LinkedIn/小红书/知乎：<a href="#" target="_blank" rel="noreferrer">你的主页</a></p>
+
+      <button class="btn" id="helloBtn">点我打招呼</button>
+      <p class="tip" id="msg"></p>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> 张正芳 · Built with HTML/CSS</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
