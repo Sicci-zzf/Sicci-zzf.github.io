@@ -15,16 +15,16 @@
 
 /* 浅色主题（切换时给 html 加 .light） */
 html.light{
-  --bg0:#f6f8ff;
-  --bg1:#eef2ff;
-  --card: rgba(0,0,0,.04);
-  --text:#0b1020;
-  --muted: rgba(11,16,32,.72);
-  --border: rgba(0,0,0,.12);
-  --shadow: 0 18px 50px rgba(0,0,0,.10);
+  --bg0:#f5f5f7;
+  --bg1:#ffffff;
+  --card: rgba(255,255,255,.78);
+  --text:#111111;
+  --muted: rgba(17,17,17,.62);
+  --border: rgba(0,0,0,.08);
+  --shadow: 0 14px 40px rgba(0,0,0,.08);
 
-  --nav: rgba(255,255,255,.65);
-  --nav-border: rgba(0,0,0,.10);
+  --nav: rgba(255,255,255,.72);
+  --nav-border: rgba(0,0,0,.08);
 }
 
 *{box-sizing:border-box}
@@ -185,11 +185,13 @@ a:hover{text-decoration:underline}
 }
 
 h1{
-  margin:0 0 6px;
-  font-size:32px;
-  letter-spacing:.2px;
+  margin:0 0 8px;
+  font-size: 38px;
+  letter-spacing: -0.6px;
+  line-height: 1.12;
 }
-.sub{margin:0; color:var(--muted); line-height:1.7; max-width:54ch}
+
+.sub{margin:0; color:var(--muted); line-height:1.75; max-width:60ch; font-size:16px}
 
 .btns{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
 .btn{
@@ -254,4 +256,24 @@ h2{margin:0 0 14px; font-size:20px; letter-spacing:.2px}
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important; transition:none !important}
   html{scroll-behavior:auto}
+}
+/* 打字机 */
+.type{
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.caret{
+  display:inline-block;
+  width: .65ch;
+  margin-left: .1ch;
+  border-left: 2px solid var(--text);
+  transform: translateY(2px);
+  animation: blink 1s steps(2, end) infinite;
+  opacity:.9;
+}
+@keyframes blink{
+  0%, 49%{opacity:1}
+  50%, 100%{opacity:0}
 }

@@ -60,3 +60,46 @@ toggleBtn?.addEventListener("click", () => {
   const isLight = root.classList.contains("light");
   setTheme(isLight ? "dark" : "light");
 });
+// Hero 打字机
+const target = document.getElementById("typeTarget");
+const sub = document.getElementById("typeSub");
+
+// 你想展示的词组（随便改）
+const words = ["Sicci🦄", "累累慢慢菇🍄", "网络小白一个"];
+let w = 0, i = 0, deleting = false;
+
+function tick(){
+  if (!target) return;
+
+  const word = words[w];
+  if (!deleting) {
+    i++;
+    target.textContent = word.slice(0, i);
+    if (i === word.length) {
+      deleting = true;
+      setTimeout(tick, 900);
+      return;
+    }
+  } else {
+    i--;
+    target.textContent = word.slice(0, i);
+    if (i === 0) {
+      deleting = false;
+      w = (w + 1) % words.length;
+    }
+  }
+
+  // 速度：打字快、删字更快
+  const speed = deleting ? 50 : 85;
+  setTimeout(tick, speed);
+}
+
+// 让副标题也更“Apple”一点：轻微淡入
+if (sub) sub.style.opacity = "0";
+setTimeout(() => {
+  tick();
+  if (sub) {
+    sub.style.transition = "opacity .8s ease";
+    sub.style.opacity = "1";
+  }
+}, 300);
