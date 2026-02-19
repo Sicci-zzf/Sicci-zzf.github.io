@@ -8,6 +8,7 @@ const posts = [
 ];
 
 const el = document.getElementById("postList");
+
 if (!el) {
   console.error("找不到 #postList：请检查 blog/index.html 是否有 <div id='postList'>");
 } else {
