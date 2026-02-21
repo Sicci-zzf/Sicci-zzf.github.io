@@ -1,0 +1,27 @@
+- class_name: 友情链接
+  class_desc: 一起写博客的朋友
+  link_list:
+    - name: 我的 GitHub
+      link: https://github.com/Sicci-zzf
+      avatar: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+      descr: 我在 GitHub 的主页
+
+- class_name: 一些有趣的网站
+  class_desc: 收藏的小工具与站点
+  link_list:
+    - name: 配色网站
+      link: https://mycolor.space
+      avatar: https://mycolor.space/favicon.ico
+      descr: 美化你的颜色搭配
+    - name: 青柠起始页
+      link: https://limestart.cn
+      avatar: https://limestart.cn/favicon.ico
+      descr: 简洁优美的起始页
+
+- class_name: 大佬的实用网站
+  class_desc: 值得学习的站点/文档
+  link_list:
+    - name: Butterfly
+      link: https://butterfly.js.org
+      avatar: https://butterfly.js.org/img/avatar.png
+      descr: Butterfly 主题文档
