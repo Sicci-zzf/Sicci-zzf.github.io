@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2026/02/21/hello-world/</url>
+    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo server
+
+More info: Server
+Generate static files$ hexo generate
+
+More info: Generating
+Deploy to remote sites$ hexo deploy
+
+More info: Deployment
+]]></content>
+  </entry>
+  <entry>
+    <title>第二篇 更新日志1</title>
+    <url>/2026/02/21/%E7%AC%AC%E4%BA%8C%E7%AF%87-%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[切换站点（新站 &#x2F; 旧站）切换发布内容在 GitHub 网页端完成：1.打开仓库：Settings → Pages
+
+2.Source 选择 Deploy from a branch
+
+3.Branch 选择：
+
+    gh-pages：发布 Hexo 新站（当前）
+
+    legacy：发布旧站备份
+
+保存后等待片刻刷新即可。更新日志（里程碑）v0（旧站阶段）：从零搭建静态个人站（HTML/CSS/JS），并上线到 GitHub Pages
+
+v0.1：加入动画、主题切换、可复用导航组件；实现博客页面与文章结构
+
+v0.2：博客支持 Markdown 渲染、文章路由与列表自动生成；处理缓存与部署细节
+
+v1（Hexo 迁移）：迁移到 Hexo 架构；采用 main（源码）+ gh-pages（发布）分离；保留 legacy 作为旧站备份；新站成功发布到 https://sicci-zzf.github.io
+
+备注node_modules&#x2F;、public&#x2F;、.deploy_git&#x2F;、db.json 均已忽略，不纳入版本控制
+如遇更新后页面未变化，可等待 Pages 部署完成并强制刷新（⌘⇧R）
+你怎么保存它在终端执行：
+cd ~/my-siteopen -a &quot;Visual Studio Code&quot; README.md
+把上面的内容粘贴进去保存，然后提交：git add README.md
+git commit -m &quot;docs: add README&quot;
+git push
+
+]]></content>
+      <tags>
+        <tag>旧站在今天废弃，正式进入legacy积灰，新站Hexo-Butterfly今日启动</tag>
+      </tags>
+  </entry>
+</search>
